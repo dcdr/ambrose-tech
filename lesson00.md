@@ -18,3 +18,7 @@ Open this file at /src/lessons/00/hello.html.
 </body>
 </html>
 ```
+
+The ``<!DOCTYPE HTML>`` tag identifies the document as HTML 5. All HTML documents contain required ``<html>`` and ``<body`` tags. An optional ``<header>`` tag may precede the ``<body>`` tag to include CSS, Javascript and meta data.
+
+Generally speaking, Javascript used across many applications, called libraries, are included in the ``<header>``, Javascript code specific to the application is included in the ``<body>``.
