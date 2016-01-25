@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+  <script>
+    var a = 1;
+  </script>
+  <script>
+    console.log("The value of a is: " + a);
+  </script>
+  <script>
+    function showIt(c) {
+      var d = "" + c;
+      console.log(d);
+    }
+  </script>
+  <script>
+    showIt(10);
+    console.log(d);     // An error. d is only valid within the scope of the function showIt().
+  </script>
+  <div id="b">1</div>
+</body>
+</html>
