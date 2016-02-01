@@ -3,7 +3,7 @@
 [Lesson 00](lesson00.md) contained a brief introduction to HTML and Javascript via the Hello World! example. We will build
 on that introduction using an HTML form to test if a word is a palindrome.
 
-If you haven't already [cloned the repository](/tools/git-clone.md), do so now. [Create a branch](/tools/git-branch.md). Name your branches using the pattern <your name or initials>-<reason for the branch>. For example, tbergstrand-lesson01.
+[Clone the repository](/tools/git-clone.md) if you haven't already done so. [Create a branch](/tools/git-branch.md). Name your branches using the pattern <your name or initials>-<reason for the branch>. For example, tbergstrand-lesson01.
 
 To setup for this lesson:
 
@@ -30,17 +30,21 @@ Enter some text that you believe is a palindrome. Note how after entering the fi
 
 This is a demonstration of Angular's powerful two-way data binding. In one direction, Angular puts data into the view. In this case, our app starts out with an empty string. In the other direction, Angular updates the model so that the application can evaluate it.
 
-Model data is declared in the view using the ng-model attribute. You'll find this in the ``<input>`` tag. Angular copies the data entered into the ``<input>`` field into the p.palindrome variable. This variable is defined inside of the PalindromeController and this controller is activated through the use of the ng-controller attribute of the enclosing ``<div>``. Note the use of the "<controllerName> as <variableName" construct. In this case, ng-controller="PalindromeController as p". This allows us to review to the model data defined in the PalindromeController using the variable name "p" and this is the "p" you see in the ng-model="p.palindrome" attribute.
+The data that a view operates on is called the view model or model data.
 
-Now find the ``<div ng-hide="!p.palindrome">`` statement. The ng-hide attribute causes the enclosing element to be hidden from view if the expression "!p.palindrome" evaluates to true, which is this case is true if the model data p.palindrome has an empty value. As soon as you add one character to the text box, the expression evaluates to false cause ng-hide to fail and now the ``<div>`` is presented. 
+Model data is declared in the view using the ng-model attribute. You'll find this in the ``<input>`` tag. Angular copies the data entered into the ``<input>`` field into the p.palindrome variable. This variable is defined inside of the PalindromeController and this controller is activated through the use of the ng-controller attribute of the enclosing ``<div>``. Note the use of the "<controllerName> as <variableName>" construct, in this case, ``ng-controller="PalindromeController as p"``. This allows us to refer to the model data defined in the PalindromeController using the variable name "p" and this is the "p" you see in the ng-model="p.palindrome" attribute.
 
-The ng-show attribute has the opposite effect of ng-hide causing the enclosing element to be visible only if the expression evaluates to true. The ng-show attribute is used twice  to select between presenting either the "Is a palindrome." or "Is not a palindrome." strings via the p.isPalindrome() function.
+Now find the ``<div ng-hide="!p.palindrome">`` statement. The ng-hide attribute causes the enclosing element to be hidden from view if the expression "!p.palindrome" evaluates to true, which in this case is true if the model data p.palindrome has an empty value. In Javascript, ! is called the not operation. A value evaluates to true if it is the boolean value ``true``, not zero, not an empty string or not undefined. So the initial empty string value of ``p.palindrome`` evaluates to false, but the ``!`` operator makes the false value true, and thus tells ng-hide to hide the enclosing element. 
+
+As soon as you add one character to the text box, the expression evaluates to false causing the expression to fail and now the ``<div>`` is presented.
+
+The ng-show attribute has the opposite effect of ng-hide causing the enclosing element to be visible only if the expression evaluates to true. The ng-show attribute is used twice to select between presenting either the "Is a palindrome." or "Is not a palindrome." strings via the p.isPalindrome() function.
 
 ## Palindrome.js
 
 Now take a look at palindrome.js. The file implements an Angular controller. Angular controllers manage retrieving data from the server that is to be displayed in the view, sending the data entered into a view back to the server and all of the business logic that evaluates the data before it heads off in either direction.
 
-In this case, our controller need not communicate with a server. It manages the model data internally. 
+In this case, our controller does not communicate with a server. It manages the model data internally. 
 
 A best practice in Angular, and in Javascript in general, is to set the value of the ``this`` variable to a local variable. The ``this`` variable is set to the current object under control. In this case, it's the function() that implements the PalindromeController.
 
@@ -48,19 +52,19 @@ One way to create model data in the controller is to assign a field to the ``thi
 
 ## Palindrome.controller.tests.js
 
-Next open the palindrome.controller.tests.js file that defines a set of tests for the PalindromeController code. There's a little bit of magic in this file that we won't cover just yet. For now, let's focus on the ``describe()`` and ``it()`` functions. These are defined by the Jasmine Behavior Driven Design (BDD) testing framework. The ``describe()`` function declares a test suite. The ``it()`` functions define individual tests. BDD testing frameworks are designed to enable a fairly explicit natural language description of the tests.
+Next open the palindrome.controller.tests.js file that defines a set of tests for the PalindromeController code. There's a little bit of magic in this file that we won't cover just yet. For now, let's focus on the ``describe()`` and ``it()`` functions. These are defined by the Jasmine Behavior Driven Design (BDD) testing framework. The ``describe()`` function declares a test suite. The ``it()`` function defines individual test. BDD testing frameworks are designed to enable a fairly natural language description of the tests.
 
-I've defined three tests. The first is intended to validate that "tatbctat" is not a palidrome. The second that "tattarrattat" is a palindrome. And the third that "A Man, A Plan, A Canal-Panama!" is a palindrome.
+I've defined three tests. The first is intended to validate that "tatbctat" is not a palidrome. The second that "tattarrattat" is a palindrome. And the third that the phrase "A Man, A Plan, A Canal-Panama!" is a palindrome.
 
-Generally, we run these tests as part of the build tools, but for this lesson, we'll run them in a browser.
+Usually, we run tests using build tools. But for this lesson, we'll run them in a browser.
 
 ## Jasmine.html
 
-Open the Jasmine.html file in your browser. This will automatically run the tests and report the results.
+Open the Jasmine.html file in your browser. This will load the tests and controller code, automatically run the tests and report the results.
 
-You will see that two of the three tests fail. In reality, all three tests are failing, because the first test is returning a false positive--isPalindrome() is returning false, but for the wrong reason.
+You will see that two of the three tests fail. In reality, all three tests are failing, because the first test is returning a false positive--isPalindrome() is returning false, but for the wrong reason. These tests are correctly implemented. It's the controller code that is failing. And now for your assignment.
 
-## Assignment
+## Assignment - 10 points
 
 Your assignment is to:
 
@@ -75,10 +79,10 @@ Hints
 
 1. The defect is related to the fact that indexing characters in a string is zero-based. That is, the first character in a string is at index [0]. Thus, if a string is four (4) characters long, the last character in the string is at index [3] (or [4-1] to be more precise).
 
-2. There are several additional tests that ought to be added. The first would be to test that isPalindrome() returns false if the model data (palindrome) is set to an empty string. This will require modifying the isPalidrome() function accoringly. The second would be to testing whether a word with an odd number of characters is or is not a palindrome. A third would be to add negative (is not a palindrome) cases.
+2. There are several additional tests that ought to be added. The first would be to test that isPalindrome() returns false if the model data (palindrome) is set to an empty string. This will require modifying the isPalidrome() function accordingly. The second would be to testing whether a word with an odd number of characters is or is not a palindrome. A third would be to add other negative (is not a palindrome) cases.
 
 3. Testing that a phrase as a palindrome requires ignoring (skipping over) spaces and punctuation and ignoring differences in case. 
 
 Important
 
-To complete this assignment, you must commit (save) your changes to your local repository using GitHub Desktop and then submit a Pull Request. This will cause an email to be sent to me to review your code. Typically, a reviewer will merge the submittal if the submitted code is acceptable. I will not do that in these cases. So don't be bothered if you see that your pull request is rejected. It just means that I finished evaluating your submittal. I'll let you know if you passed our not via email separately.
+To complete this assignment, you must commit (save) your changes to your local repository using GitHub Desktop and then submit a Pull Request. This will cause an email to be sent to me to review your code. Typically, a reviewer will merge the submittal if the submitted code is acceptable. I will not do that in these cases. So don't be bothered if you see that your pull request is rejected. It just means that I finished evaluating your submittal. I'll let you know separately via email if you passed our not.
