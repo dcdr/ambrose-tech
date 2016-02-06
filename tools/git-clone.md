@@ -1,7 +1,7 @@
 # Cloning The Repository
 
-You will need to clone this repository to complete the exercises. This can be done with a variety of tools. I will assume you
-have GitHub Desktop installed.
+You will need to clone this repository to complete the exercises. This can be done with a variety of tools. These instructions are for
+GitHub Desktop.
 
 As you are already reading this guide, you should see dcdr / ambrose-tech in the upper left corner of the window. Click on ambrose-tech
 to open the main repository page.
