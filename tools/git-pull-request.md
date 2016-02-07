@@ -8,4 +8,4 @@ repository.
 3. Select the branch you want to merge to (generally dev).
 4. Click the Send Pull Request button.
 
-<img src="taskbar-pull-request.md" />
+<img src="taskbar-pull-request.png" />
