@@ -16,6 +16,10 @@ var length = myArray.length;    // 4
 var last = myArray[length-1];   // 40
 ```
 
+index|0|1|2|3
+---|---|---|---|---
+myArray|10|20|30|40
+
 Note that length of an array indicates the last indexable value. It does not indicate how many items are defined in the array.
 For example, if we add an element at index 9, then there will be five elements defined in the array, but the length of the
 array is 10.
@@ -24,6 +28,9 @@ array is 10.
 myArray[9] = 90;
 length = myArray.length;        // 10
 ```
+index|0|1|2|3|4|5|6|7|8|9
+---|---|---|---|---|---|---|---|---|---|---
+myArray|10|20|30|40|undefined|undefined|undefined|undefined|undefined|90
 
 There are a number of ways to iterate over the values of an array. The first is with a for loop. 
 ```
@@ -132,3 +139,24 @@ var isEven = "stop.isEvenLength();                    // true
 var firstLetterIsT = "stop".startsWith("T");          // false
 var value = [1, 2, 3, 4, 5].aggregate(0);             // 15
 ```
+
+Assignment - 10 points
+
+Implement the string functions myIndexOf() and mySlice() and array functions myIndexOf() and myReverse().
+
+See [Array functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) for a description
+of the indexOf() and reverse() functions. Your myIndexOf() and myReverse() function should mimic these functions. Do not use them
+in your implementation.
+See [String functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) for a description
+of the indexOf() or slice() functions. Your myIndexOf() and mySlice() functions should mimic these functions. Do not use them
+in your implementation.
+
+1. [Clone the ambrose-tech repository](tools/git-clone.md) if you haven't yet.
+2. [Create a branch](tools/git-branch.md).
+3. Open the src/lessons/02/jasmine.html file in a browser. Note the failures.
+4. Open the string.js file in Atom. Implement the myIndexOf() and mySlice() functions.
+5. Reload the jasmine.html file to test your implementation.
+6. Open the array.js file in Atom. Implement the myIndexOf() and myReverse() functions.
+7. Reload the jasmine.html file to test your implementation.
+8. [Commit your changes](tools/git-commit.md).
+9. [Issue a pull request](tools/git-pull-request.md).
