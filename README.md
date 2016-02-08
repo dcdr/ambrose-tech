@@ -5,3 +5,4 @@ Students should first clone the repository. Then for each lesson, create a branc
 
 * [Lesson 00 - Hello World!] (lessons/lesson00.md)
 * [Lesson 01 - Intro to HTML/CSS/Javascript and testing] (lessons/lesson01.md)
+* [Lesson 02 - Functions](lessons/lesson02.md)
