@@ -116,11 +116,27 @@ The second option is the more popular.
 
 Objects are essentially associative arrays--arrays with named indices.
 
-Values are assigned to keys within the object using on of two syntaxes:
+Values are assigned to keys within the object using one of three syntaxes:
 ```
 obj1['key'] = value;
 obj1.key = value;
+var obj3 = {
+   key: value
+};
 ```
-The second should be preferred, but the first is necessary when the key is string that is an invalid identifier, that is when it uses
+The second should be preferred, but the first is necessary when the key is a string that is an invalid identifier, that is when it uses
 a character that is not a dollar sign ($), underscore (_), a letter or a digit. For example, the key "a key" having a space must
 use the array syntax, ``obj1["a key"] = value;``.
+
+The value of a key may be another object.
+```
+var obj = {
+   name: 'Jimmy John',
+   address: {
+      street: '123 Main St.',
+      city: 'Boise',
+      state: 'ID',
+      'zip code': 83702
+   }
+};
+```
