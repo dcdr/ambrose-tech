@@ -138,6 +138,6 @@ Your assignment is to:
 
 1. [Check out the ambrose-tech repository](/tools/git-clone.md).
 2. [Create a branch](/tools/git-branch.md).
-3. Modify the alert to ready "Hello, Mr. Bergstrand!".
+3. Modify the alert to read "Hello, Mr. Bergstrand!".
 4. [Commit and sync your changes](/tools/git-commit.md).
 5. [Create a pull request](/tools/git-pull-request.md).
