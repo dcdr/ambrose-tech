@@ -118,15 +118,15 @@ Objects are essentially associative arrays--arrays with named indices.
 
 Values are assigned to keys within the object using one of three syntaxes:
 ```
-obj1['key'] = value;
-obj1.key = value;
-var obj3 = {
+obj['key'] = value;
+obj.key = value;
+var obj = {
    key: value
 };
 ```
 The second should be preferred, but the first is necessary when the key is a string that is an invalid identifier, that is when it uses
 a character that is not a dollar sign ($), underscore (_), a letter or a digit. For example, the key "a key" having a space must
-use the array syntax, ``obj1["a key"] = value;``.
+use the array syntax, ``obj["a key"] = value;``.
 
 The value of a key may be another object.
 ```
@@ -140,3 +140,17 @@ var obj = {
    }
 };
 ```
+Note that the terms key, field, member and property are often used interchangably. 
+
+Use the dot (.) syntax to access keys, including objects within objects. For example, ``obj.address.city`` has the value 'Boise' in the example above. The same value can be access using array syntax as obj['address']['city'] or even with a mix of syntax obj.address['city'] or obj['address'].city.
+
+The obj.address object can be represented as an associated array as follows
+
+index|'street'|'city'|'state'|'zip code'
+---|---|---|---|---
+obj|'123 Main St.'|'Boise'|'ID'|83702
+
+Attempting to access a key that is not yet defined returns the ``undefined`` object.
+```
+if (undefined === obj.address.country) console.log('missing country');
+if (undefined === obj['age']) console.log('missing age');
