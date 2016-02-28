@@ -1,19 +1,15 @@
 # Web Programming
 
-Computer programs operate in many environments. They run on mainframe computers, personal computers, servers, smart phones,
+Computer programs operate in many environments. They run on mainframe computers, personal computers, servers, smartphones,
 tablets, watches, automobiles, refrigerators, thermostats, airplanes, cruise missles, toys, and much more.
 
-Web programs run in at least two environments. The user facing part of the program runs in a web browser or some mobile device,
-such as a phone, tablet or watch. The part of the program displays and collects data from the user, but does not store or process
-it. The user facing part of the program is often called the front-end. The front-end retrieves data from and sends data to the
-backend running on a remote server. 
+Web programs are split into two parts, a front-end displaying data to the user, running in a web browser or mobile app, and
+a backend moving data to and from permanent storage and applying business rules, running on a remote server.
 
-The backend is generally composed of several parts. All of these parts may run on one server or be spread across multiple
-servers or even one part itself may be replicated across many servers. This latter case occurs when there are thousands of
-concurrent users. No one computer could handle such a load. So the program is replicated on many servers and a component
-called the load balancer distributes (users') requests across the replicated servers.
+The backend is composed of several parts that may run on one server or be spread across multiple servers. Individuals parts
+may be replicated across several servers to provide redundancy in case of failure or to handle thousands of concurrent users.
 
-There are two general approaches to generating the front-end. The older approach is called a multi-page application (MPA) where
+There are two general approaches to implementing the front-end. The older approach is called multi-page applications (MPA) where
 each page the user sees is generated on the backend. That is, as the user navigates through the application, data is sent
 to the server and the server generates a new page for the user to interact with. The pages are almost always implemented in
 HTML and presented in a web browser running on the user's computer or mobile device. 
